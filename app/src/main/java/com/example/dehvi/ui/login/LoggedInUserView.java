@@ -1,4 +1,4 @@
-package  com.example.dehvi.ui.login;
+package com.example.dehvi.ui.login;
 
 /**
  * Class exposing authenticated user details to the UI.
