@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 public class User {
 
 
+    public User() {
+    }
+
     @SerializedName("password")
     String password;
     @SerializedName("username")
