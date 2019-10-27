@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -23,8 +24,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dehvi.R;
+import com.example.dehvi.data.model.Student;
 import com.example.dehvi.ui.login.LoginViewModel;
 import com.example.dehvi.ui.login.LoginViewModelFactory;
+import com.example.dehvi.ui.student.StudentActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -40,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
+        final Button childrenButton = findViewById(R.id.mychildren);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
@@ -108,7 +112,15 @@ public class LoginActivity extends AppCompatActivity {
                 return false;
             }
         });
+        childrenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
+                startActivity(intent);
+                finish();
 
+            }
+        });
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
